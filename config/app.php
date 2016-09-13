@@ -155,6 +155,12 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
+        /*
+         * Thirdparty Service Provider...
+         */
+        Mgallegos\LaravelJqgrid\LaravelJqgridServiceProvider::class,
+        Caffeinated\Shinobi\ShinobiServiceProvider::class
 
     ],
 
@@ -201,6 +207,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'GridRender' => Mgallegos\LaravelJqgrid\Facades\GridRender::class,
+        'GridEncoder' => Mgallegos\LaravelJqgrid\Facades\GridEncoder::class,
 
     ],
 
