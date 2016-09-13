@@ -209,7 +209,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'GridRender' => Mgallegos\LaravelJqgrid\Facades\GridRender::class,
         'GridEncoder' => Mgallegos\LaravelJqgrid\Facades\GridEncoder::class,
-
+        'Shinobi' => Caffeinated\Shinobi\Facades\Shinobi::class,
     ],
 
 ];

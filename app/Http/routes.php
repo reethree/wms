@@ -11,6 +11,38 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'web'], function(){
+    
+    Route::group(['middleware' => 'auth'], function(){
+        
+        Route::get('/', [
+            'as' => 'index',
+            'uses' => 'DashboardController@index'
+        ]);
+
+        // Logout Routes
+        Route::get('/logout', [
+            'as' => 'logout',
+            'uses' => 'Auth\AuthController@logout'
+        ]);
+        
+        // Data Routes
+        require_once 'Routes/RoutesData.php';
+        
+    });
+    
+    Route::group(['middleware' => 'guest'], function(){
+        
+        // Login Routes
+        Route::get('/login', [
+            'as' => 'login',
+            'uses' => 'Auth\AuthController@getLogin'
+        ]);
+        Route::post('/signin', [
+            'as' => 'signin',
+            'uses' => 'Auth\AuthController@postLogin'
+        ]);
+    });
+
+
 });
